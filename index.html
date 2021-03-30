@@ -4,12 +4,29 @@
 </head>
 <body>
 <a-scene>
-
-    <a-text position="-2 2 -3" value="Hello, Welcome!"></a-text>
-
-    <a-plane position="0 0 -16" rotation="-70 0 0" width="4" height="16" color="#0000FF"></a-plane>
-    <a-plane position="0 5 -32" rotation="-70 0 0" width="4" height="16" color="#0000FF"></a-plane>
+    
+    <!--Céu 01 | Fundo do Game-->
     <a-sky color="#000000"</a-sky>></a-sky>
+
+    <!--Cenário 01 - Fase 01-->
+    <a-plane position="0 0 -20" rotation="-60 0 0" width="20" height="20" color="#0000FF">
+        <!--Decoração 01 | Caixas na extremidade-->
+        <a-box position ="0 -10 0" width="20"  color = "#FF0000"></a-box>
+        <a-box position ="-10  0 0" height = "21" color = "#FF0000"></a-box>
+        <a-box position =" 0  10 0" width="20" color = "#FF0000"></a-box>
+        <a-box position =" 10 0 0" height = "21" color = "#FF0000"></a-box>
+
+        <!--Decoração 02 | Caixas centrais-->
+        <a-box position ="  0   0 0" color = "#FF0000"></a-box>
+        <a-box position ="  1   0 0" color = "#FF0000"></a-box>
+        <a-box position =" -1   0 0" color = "#FF0000"></a-box>
+        <a-box position =" 0   1 0" color = "#FF0000"></a-box>
+        <a-box position =" 0   -1 0" color = "#FF0000"></a-box>
+
+
+    </a-plane>
+    
+    
 
 </a-scene>
 </body>
