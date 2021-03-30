@@ -1,33 +1,42 @@
-<html>
-<head>
-    <script src="./libs/aframe.min.js"></script>
-</head>
-<body>
-<a-scene>
-    
-    <!--Céu 01 | Fundo do Game-->
-    <a-sky color="#000000"</a-sky>></a-sky>
+    <html>
+    <head>
+        <script src="./libs/aframe.min.js"></script>
+    </head>
+    <body>
+    <a-scene>
+        
+        <!--Céu 01 | Fundo do Game-->
+        <a-sky color="#000000"</a-sky>></a-sky>
 
-    <!--Cenário 01 - Fase 01-->
-    <a-plane position="0 0 -20" rotation="-60 0 0" width="20" height="20" color="#0000FF">
-        <!--Decoração 01 | Caixas na extremidade-->
-        <a-box position ="0 -10 0" width="20"  color = "#FF0000"></a-box>
-        <a-box position ="-10  0 0" height = "21" color = "#FF0000"></a-box>
-        <a-box position =" 0  10 0" width="20" color = "#FF0000"></a-box>
-        <a-box position =" 10 0 0" height = "21" color = "#FF0000"></a-box>
+        <!--Cenário 01 - Fase 01-->
+        <a-plane position="0 2 -20" rotation="0 0 0" width="20" height="20" color="#0000FF">
+            <!--Decoração 01 | Caixas na extremidade-->
+            <a-box position ="0 -10 0" width="20"  color = "#FF0000"></a-box>
+            <a-box position ="-10  0 0" height = "21" color = "#FF0000"></a-box>
+            <a-box position =" 0  10 0" width="20" color = "#FF0000"></a-box>
+            <a-box position =" 10 0 0" height = "21" color = "#FF0000"></a-box>
 
-        <!--Decoração 02 | Caixas centrais-->
-        <a-box position ="  0   0 0" color = "#FF0000"></a-box>
-        <a-box position ="  1   0 0" color = "#FF0000"></a-box>
-        <a-box position =" -1   0 0" color = "#FF0000"></a-box>
-        <a-box position =" 0   1 0" color = "#FF0000"></a-box>
-        <a-box position =" 0   -1 0" color = "#FF0000"></a-box>
+            <!--Decoração 02 | Caixas centrais-->
+            <a-box position ="  0   0 0" color = "#FF0000"></a-box>
+            <a-box position ="  1   0 0" color = "#FF0000"></a-box>
+            <a-box position =" -1   0 0" color = "#FF0000"></a-box>
+            <a-box position =" 0   1 0" color = "#FF0000"></a-box>
+            <a-box position =" 0   -1 0" color = "#FF0000"></a-box>
 
+            <!--Cabeça da cobra | Movimentação-->
+            <a-box id="head" width="0.5" height="0.5"  position =" -8 -9 0" color = "#00FF00">
 
-    </a-plane>
-    
-    
+                <a-entity windows-motion-controls="hand: left"></a-entity>
+                <a-entity windows-motion-controls="hand: right"></a-entity>
 
-</a-scene>
-</body>
-</html>
+            </a-box>
+            
+            
+
+        </a-plane>
+        
+        
+
+    </a-scene>
+    </body>
+    </html>
