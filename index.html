@@ -1,11 +1,11 @@
    <html>
         <head>
             <script src="./libs/aframe.min.js"></script>
-            <!--
+            
             <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
             <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
 
-            -->
+            
             <script src="https://unpkg.com/super-hands@^3.0.1/dist/super-hands.min.js"></script>
         </head>
         <body>
@@ -27,11 +27,11 @@
                     <a-box position =" 10 0 0" height = "21" color = "#FF0000"></a-box>
 
                     <!--Decoração 02 | Caixas centrais-->
-                    <a-box position ="  0   0 0" color = "#FF0000"></a-box>
-                    <a-box position ="  1   0 0" color = "#FF0000"></a-box>
-                    <a-box position =" -1   0 0" color = "#FF0000"></a-box>
-                    <a-box position =" 0   1 0" color = "#FF0000"></a-box>
-                    <a-box position =" 0   -1 0" color = "#FF0000"></a-box>
+                    <a-box position ="  0   0 0" color = "#FF0000" static-body></a-box>
+                    <a-box position ="  1   0 0" color = "#FF0000" static-body></a-box>
+                    <a-box position =" -1   0 0" color = "#FF0000" static-body></a-box>
+                    <a-box position =" 0   1 0" color = "#FF0000" static-body></a-box>
+                    <a-box position =" 0   -1 0" color = "#FF0000" static-body></a-box>
 
                     
                     <!--<a-box id="head" width="1" height="2" depth="0.2"  position =" -8 -7 0.1" color = "#00FF00"></a-box>-->
@@ -41,9 +41,9 @@
                 </a-plane>
                 
                 <!--Cabeça da cobra | Movimentação-->
-                <a-entity   geometry="primitive: box; width: 1height:2; depth:0.2"  
-                position =" -8 -7 -20"  material="color: #00FF00"
-                look-controls wasd-controls="acceleration:10; wsAxis: y; wsInverted: true" 
+                <a-entity geometry="primitive: box; width: 1height:2; depth:0.2"  
+                position =" -8 -7 -20"  material="color: #00FF00" static-body
+                look-controls wasd-controls="acceleration:30; wsAxis: y; wsInverted: true" 
         >
         </a-entity>
 
