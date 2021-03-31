@@ -1,9 +1,15 @@
     <html>
     <head>
         <script src="./libs/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
     </head>
     <body>
     <a-scene>
+
+        <!--Definindo câmera-->
+        <a-entity camera position="0 0 0">
+            
+        </a-entity>
         
         <!--Céu 01 | Fundo do Game-->
         <a-sky color="#000000"</a-sky>></a-sky>
@@ -24,19 +30,21 @@
             <a-box position =" 0   -1 0" color = "#FF0000"></a-box>
 
             <!--Cabeça da cobra | Movimentação-->
-            <a-box id="head" width="0.5" height="0.5"  position =" -8 -9 0" color = "#00FF00">
-
-                <a-entity windows-motion-controls="hand: left"></a-entity>
-                <a-entity windows-motion-controls="hand: right"></a-entity>
-
+            <a-box id="head" width="0.5" height="0.5"  position =" -8 -9 0" shadow static-body color = "#00FF00">
             </a-box>
-            
-            
 
         </a-plane>
-        
-        
 
     </a-scene>
+
+    <script>
+        document.addEventListener('keydown', function(e){
+            let head = document.querySelector("head")
+
+            console.log(head.body)
+        })
+
+    </script>
+
     </body>
     </html>
