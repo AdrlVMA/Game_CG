@@ -1,82 +1,42 @@
-   <html>
-        <head>
-            <script src="./libs/aframe.min.js"></script>
-            
-            <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-            <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+<html>
+    <head>
+        <script src="./libs/aframe.min.js"></script>
+        <script src="./libs/aframe-extra.min.js"></script>
+        <script src="./libs/aframe-physics-system.min.js"></script>
+        <script src="components/keyboard.js"></script>
+    </head>
+    <body>
+        <a-scene physics>
+            <!--Céu 01 | Fundo do Game-->
+            <a-sky color="#000000"></a-sky>
 
-            
-            <script src="https://unpkg.com/super-hands@^3.0.1/dist/super-hands.min.js"></script>
-        </head>
-        <body>
-            <a-scene physics>
+            <!--  Desabilitando movimentacao da camera  -->
+            <a-entity camera="active: true" look-controls wasd-controls position="0 2 -2" data-aframe-default-camera>
+            </a-entity>
 
-                <!--Definindo câmera--> 
-                <a-entity camera position="0 0 20" rotation="0 0 0"></a-entity>                
-                
-                <!--Céu 01 | Fundo do Game-->
-                <a-sky color="#000000"></a-sky>
+            <!--Cenário 01 - Fase 01-->
+            <a-plane position="0 2 -20" rotation="0 0 0" width="20" height="20" color="#0000FF">
+                <!--Decoração 01 | Caixas na extremidade-->
+                <a-box position ="0 -10 0" width="20"  color = "#FF0000"></a-box>
+                <a-box position ="-10  0 0" height = "21" color = "#FF0000"></a-box>
+                <a-box position =" 0  10 0" width="20" color = "#FF0000"></a-box>
+                <a-box position =" 10 0 0" height = "21" color = "#FF0000"></a-box>
 
-                <!--Cenário 01 - Fase 01-->
-                <a-plane position="0 2 -20" rotation="0 0 0" width="20" height="20" color="#0000FF">
+                <!--Decoração 02 | Caixas centrais-->
+                <a-box position ="  0   0 0" color = "#FF0000"></a-box>
+                <a-box position ="  1   0 0" color = "#FF0000"></a-box>
+                <a-box position =" -1   0 0" color = "#FF0000"></a-box>
+                <a-box position =" 0   1 0" color = "#FF0000"></a-box>
+                <a-box position =" 0   -1 0" color = "#FF0000"></a-box>
 
-                    <!--Decoração 01 | Caixas na extremidade-->
-                    <a-box position ="0 -10 0" width="20"  color = "#FF0000"></a-box>
-                    <a-box position ="-10  0 0" height = "21" color = "#FF0000"></a-box>
-                    <a-box position =" 0  10 0" width="20" color = "#FF0000"></a-box>
-                    <a-box position =" 10 0 0" height = "21" color = "#FF0000"></a-box>
-
-                    <!--Decoração 02 | Caixas centrais-->
-                    <a-box position ="  0   0 0" color = "#FF0000" static-body></a-box>
-                    <a-box position ="  1   0 0" color = "#FF0000" static-body></a-box>
-                    <a-box position =" -1   0 0" color = "#FF0000" static-body></a-box>
-                    <a-box position =" 0   1 0" color = "#FF0000" static-body></a-box>
-                    <a-box position =" 0   -1 0" color = "#FF0000" static-body></a-box>
-
-                    
-                    <!--<a-box id="head" width="1" height="2" depth="0.2"  position =" -8 -7 0.1" color = "#00FF00"></a-box>-->
-                        
-                    </a-entity>
-
-                </a-plane>
-                
                 <!--Cabeça da cobra | Movimentação-->
-                <a-entity geometry="primitive: box; width: 1height:2; depth:0.2"  
-                position =" -8 -7 -20"  material="color: #00FF00" static-body
-                look-controls wasd-controls="acceleration:30; wsAxis: y; wsInverted: true" 
-        >
-        </a-entity>
+                <a-box id="head" keyboard width="0.5" height="0.5"  position =" -8 -9 0" color = "#00FF00">
 
-            </a-scene>
+                    <a-entity windows-motion-controls="hand: left"></a-entity>
+                    <a-entity windows-motion-controls="hand: right"></a-entity>
 
-            <script>
-                let x = -8;
-                let y = -7;
-                document.querySelector('body').addEventListener('keydown', function(event) {
-                    var aux = event.keyCode
-                    //console.info( aux );
-
-                    if(aux == 38){
-                        y = y + 0.1;
-                    }
-                    
-                    if(aux == 40){
-                        y = y - 0.1;
-                    }
-
-                    if(aux == 37){
-                        x = x - 0.1;
-                    }
-                    
-                    if(aux == 39){
-                        x = x + 0.1;
-                    }
-
-                    console.info( x );
-                    console.info( y );
-
-                });
-            </script>
-
-        </body>
-    </html>
+                </a-box>
+            </a-plane>
+        </a-scene>
+    </body>
+</html>
