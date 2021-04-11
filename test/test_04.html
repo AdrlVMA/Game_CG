@@ -1,0 +1,54 @@
+<html>
+<head>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+</head>
+<body>
+<a-scene physics="gravity: -9.8; restitution: 0.7">
+
+    <!--  Assets Management System  -->
+    <a-assets>
+        <img id="ground" src="./floor2.jpg">
+    </a-assets>
+
+    <!--  Progressive controls  -->
+    <a-entity progressive-controls position="0 0 5">
+    </a-entity>
+
+    <!--  Ground  -->
+    <a-plane src="#ground" scale="50 50 1" repeat="5 5 1" rotation="-90 0 0" static-body>
+    </a-plane>
+
+    <!--  Red box  -->
+    <a-box color="#AA0000" position="-3.5 0.5 -4">
+        <a-box color="#AA0000" opacity="0.2" scale="2 3 1.5" posiiton="0 1 0" static-body>
+        </a-box>
+    </a-box>
+
+    <!--  Green sphere  -->
+    <a-sphere color="#00AA00" radius="0.5" position="-1 4 -4"
+              static-body>
+    </a-sphere>
+
+    <!--  Yellow sphere  -->
+    <a-sphere color="#FFAA00" radius="0.5" position="1 4 -4"
+              dynamic-body="linearDamping: 0.05; angularDamping: 0.3" grabbable>
+    </a-sphere>
+
+    <!--  Blue sphere  -->
+    <a-sphere color="#00AAFF" radius="0.5" position="3 4 -4"
+              dynamic-body="linearDamping: 0.5; angularDamping: 0.3" grabbable>
+    </a-sphere>
+
+    <!--  Blue box  -->
+    <a-box color="#00AAFF" position="5 2 -4"
+            static-body="shape: sphere; sphereRadius: 1"
+            event-set__color="_event: collide; material.color: #0055AA">
+        <a-animation attribute="rotation" to="0 360 0" repeat="indefinite" dur="3000">
+        </a-animation>
+    </a-box>
+</a-scene>
+</body>
+</html>
