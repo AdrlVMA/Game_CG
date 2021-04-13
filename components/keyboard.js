@@ -1,3 +1,6 @@
+posicao_head_x = 0;
+posicao_head_y = 0;
+
 AFRAME.registerComponent('keyboard', {
     schema: {
         eixo_x: {type: 'number', default: 0},
@@ -31,12 +34,40 @@ AFRAME.registerComponent('keyboard', {
         };
         if (this.data.direcao === 'W') {
             this.data.eixo_y += y < 9 ? this.data.velocidade : 0;
+            
+            if(this.data.eixo_y>=9){
+                console.log("Deu ruim")
+            }
+
+            posicao_head_y = this.data.eixo_y;
+
         } else if (this.data.direcao === 'D') {
             this.data.eixo_x += x < 9 ? this.data.velocidade : 0;
+        
+            if(this.data.eixo_x>=9){
+                console.log("Deu ruim")
+            }
+        
+            posicao_head_x = this.data.eixo_x;
+
         } else if (this.data.direcao === 'A') {
             this.data.eixo_x -= x > -9 ? this.data.velocidade : 0;
+
+            if(this.data.eixo_x<=-9){
+                console.log("Deu ruim")
+            }
+
+            posicao_head_x = this.data.eixo_x;
+
         } else if (this.data.direcao === 'S') {
             this.data.eixo_y -= y > -9 ? this.data.velocidade : 0;
+            
+            if(this.data.eixo_y<=-9){
+                console.log("Deu ruim")
+            }
+
+            posicao_head_y = this.data.eixo_y;
+
         }
         this.el.object3D.position.set(this.data.eixo_x, this.data.eixo_y, this.data.eixo_z);
     }
