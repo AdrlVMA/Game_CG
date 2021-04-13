@@ -1,0 +1,50 @@
+  
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-physics-system@4.0.1/dist/aframe-physics-system.min.js"></script>
+        <script src="components/keyboard.js"></script>
+    </head>
+    <body physics="gravity: -9.8">
+        <a-scene>
+
+            <a-entity position="0 20 -20" rotation="-90 0 0">
+                <a-entity camera="active: true">
+                </a-entity>
+            </a-entity>
+
+            <a-box position ="0  0 -19" width="5" color = "#FF0000" dynamic-body></a-box>
+            
+            <a-plane position="0 -2 -20" rotation="-90 0 0" width="25" height="25" color="#0000FF"  static-body>
+    
+            
+            <!--Decoração 01 | Caixas na extremidade-->
+            <!--<a-box position ="10 3 3" width="5"  color = "#FF0000" dynamic-body></a-box>
+            <a-box position ="-10  0 0" height = "5" color = "#FF0000" dynamic-body></a-box>
+            <a-box position =" 0  10 0" width="5" color = "#FF0000" dynamic-body></a-box>
+            <a-box position =" 10 0 0" height = "5" color = "#FF0000" dynamic-body></a-box>-->
+    
+
+            <!--Decoração 02 | Caixas centrais-->
+            <!--<a-box position =" 3 0 0" depth="0.3" color = "#FF0000" material="" dynamic-body></a-box>
+            <a-box position ="  1   0 0" color = "#FF0000" material="" static-body></a-box>
+            <a-box position =" -1   0 0" color = "#FF0000" material="" static-body></a-box>
+            <a-box position =" 0   1 0" color = "#FF0000" material="" static-body></a-box>
+            <a-box position =" 0   -1 0" color = "#FF0000" material="" static-body></a-box>-->
+    
+            <!--Cabeça da cobra | Movimentação-->
+            <a-box id="head" keyboard depth="0.3" width="0.5" height="0.5" weight="0.0" color = "#00FF00" static-body>
+    
+                <a-entity windows-motion-controls="hand: left"></a-entity>
+                <a-entity windows-motion-controls="hand: right"></a-entity>
+    
+            </a-box>
+    
+            </a-plane>
+            
+            
+
+            
+        </a-scene>
+    </body>
+</html>
