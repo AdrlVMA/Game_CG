@@ -14,6 +14,7 @@ AFRAME.registerComponent('keyboard', {
         this.data.velocidade = 0.05;
     },
     tick: function () {
+        const {x, y} = this.el.object3D.position;
         document.onkeypress = (event) => {
             if (event.charCode === 97) { // Letra A
                 this.data.direcao = 'A';
@@ -29,13 +30,13 @@ AFRAME.registerComponent('keyboard', {
             }
         };
         if (this.data.direcao === 'W') {
-            this.data.eixo_y += this.data.velocidade;
+            this.data.eixo_y += y < 9 ? this.data.velocidade : 0;
         } else if (this.data.direcao === 'D') {
-            this.data.eixo_x += this.data.velocidade;
+            this.data.eixo_x += x < 9 ? this.data.velocidade : 0;
         } else if (this.data.direcao === 'A') {
-            this.data.eixo_x -= this.data.velocidade;
+            this.data.eixo_x -= x > -9 ? this.data.velocidade : 0;
         } else if (this.data.direcao === 'S') {
-            this.data.eixo_y -= this.data.velocidade;
+            this.data.eixo_y -= y > -9 ? this.data.velocidade : 0;
         }
         this.el.object3D.position.set(this.data.eixo_x, this.data.eixo_y, this.data.eixo_z);
     }
