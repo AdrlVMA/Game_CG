@@ -29,7 +29,7 @@ init: function () {
     var i = 0;
 
     setInterval(function () {
-    el.setAttribute('value', "Pontuacao: " + pontuacao, );
+    el.setAttribute('value', "Pontuacao: " + pontuacao);
     console.log("--")
     }, 10);
 }
