@@ -3,9 +3,14 @@
         <script src="./libs/aframe.min.js"></script>
         <script src="components/comida.js"></script>
         <script src="components/moves.js"></script>
+        <script src="components/score.js"></script>
     </head>
     <body>
         <a-scene>
+            <a-text update-text-every-second value="a" position="-0.2 -0.6 -1" color="red" width="3"></a-text>
+            <!--<a-text id="score" score-counter position="-0.2 -0.6 -1" value= "Hello World"></a-text>-->
+            <!--<a-entity text="text: 0" position="-0.2 -0.6 -1" update-text-every-second></a-entity>-->
+
             <!--Céu 01 | Fundo do Game-->
             <a-sky color="#000000"></a-sky>
 
@@ -18,7 +23,7 @@
             </a-text>
 
             <a-text position="-0.55 1.2 -2" color="white" width=2 lineHeight=50 letterSpacing=5
-                      value="Sua pontuação eh de 0 pontos.">
+                      value="Pontuação:   pontos.">
             </a-text>
 
             <!--Cenário 01 - Fase 01-->
