@@ -1,6 +1,8 @@
 posicao_head_x = 0;
 posicao_head_y = 0;
 
+var velocidade = 0.05;
+
 AFRAME.registerComponent('moves', {
     schema: {
         eixo_x: {type: 'number', default: 0},
@@ -14,7 +16,7 @@ AFRAME.registerComponent('moves', {
         this.data.eixo_y = -8;
         this.data.eixo_z = 0;
         this.data.direcao = 'D';
-        this.data.velocidade = 0.05;
+        this.data.velocidade = velocidade;
     },
     tick: function () {
         this.keyboard();
@@ -45,37 +47,37 @@ AFRAME.registerComponent('moves', {
         const {x, y} = this.el.object3D.position;
 
         if (this.data.direcao === 'W') {
-            this.data.eixo_y += y < 9 ? this.data.velocidade : 0;
+            this.data.eixo_y += y < 9 ? velocidade : 0;
             
             if(this.data.eixo_y>=9){
-                console.log("Deu ruim")
+                //console.log("Deu ruim")
             }
 
             posicao_head_y = this.data.eixo_y;
 
         } else if (this.data.direcao === 'D') {
-            this.data.eixo_x += x < 9 ? this.data.velocidade : 0;
+            this.data.eixo_x += x < 9 ? velocidade : 0;
         
             if(this.data.eixo_x>=9){
-                console.log("Deu ruim")
+               // console.log("Deu ruim")
             }
         
             posicao_head_x = this.data.eixo_x;
 
         } else if (this.data.direcao === 'A') {
-            this.data.eixo_x -= x > -9 ? this.data.velocidade : 0;
+            this.data.eixo_x -= x > -9 ? velocidade : 0;
 
             if(this.data.eixo_x<=-9){
-                console.log("Deu ruim")
+                //console.log("Deu ruim")
             }
 
             posicao_head_x = this.data.eixo_x;
 
         } else if (this.data.direcao === 'S') {
-            this.data.eixo_y -= y > -9 ? this.data.velocidade : 0;
+            this.data.eixo_y -= y > -9 ? velocidade : 0;
             
             if(this.data.eixo_y<=-9){
-                console.log("Deu ruim")
+                //console.log("Deu ruim")
             }
 
             posicao_head_y = this.data.eixo_y;
