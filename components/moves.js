@@ -1,7 +1,7 @@
 posicao_head_x = 0;
 posicao_head_y = 0;
 
-AFRAME.registerComponent('keyboard', {
+AFRAME.registerComponent('moves', {
     schema: {
         eixo_x: {type: 'number', default: 0},
         eixo_y: {type: 'number', default: 0},
@@ -11,13 +11,21 @@ AFRAME.registerComponent('keyboard', {
     },
     init: function () {
         this.data.eixo_x = -8;
-        this.data.eixo_y = -9;
+        this.data.eixo_y = -8;
         this.data.eixo_z = 0;
         this.data.direcao = 'D';
         this.data.velocidade = 0.05;
     },
     tick: function () {
-        const {x, y} = this.el.object3D.position;
+        this.keyboard();
+
+        this.direction();
+
+        this.boards();
+
+        this.el.object3D.position.set(this.data.eixo_x, this.data.eixo_y, this.data.eixo_z);
+    },
+    keyboard: function () {
         document.onkeypress = (event) => {
             if (event.charCode === 97) { // Letra A
                 this.data.direcao = 'A';
@@ -32,6 +40,10 @@ AFRAME.registerComponent('keyboard', {
                 this.data.direcao = 'W';
             }
         };
+    },
+    direction: function () {
+        const {x, y} = this.el.object3D.position;
+
         if (this.data.direcao === 'W') {
             this.data.eixo_y += y < 9 ? this.data.velocidade : 0;
             
@@ -69,6 +81,13 @@ AFRAME.registerComponent('keyboard', {
             posicao_head_y = this.data.eixo_y;
 
         }
-        this.el.object3D.position.set(this.data.eixo_x, this.data.eixo_y, this.data.eixo_z);
+    },
+    boards: function () {
+        if (this.data.eixo_x <= -9 || this.data.eixo_x >= 9) {
+            alert("fim de jogo");
+        }
+        if (this.data.eixo_y <= -9 || this.data.eixo_y >= 9) {
+            alert("fim de jogo");
+        }
     }
 });
