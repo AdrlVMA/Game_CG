@@ -29,8 +29,20 @@ init: function () {
     var i = 0;
 
     setInterval(function () {
-    el.setAttribute('value', "Pontuacao: " + pontuacao);
-    console.log("--")
+    el.setAttribute('value', " " + pontuacao + " ");
     }, 10);
 }
 });
+
+AFRAME.registerComponent('update-text-every-second2', {
+  init: function () {
+      var el = this.el;
+      var i = 0;
+
+      if(bateu){
+        setInterval(function () {
+        el.setAttribute('value', "Game Over");
+        }, 10);}
+
+  }
+  });

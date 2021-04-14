@@ -3,6 +3,8 @@ posicao_head_y = 0;
 
 var velocidade = 0.05;
 
+var bateu = false;
+
 AFRAME.registerComponent('moves', {
     schema: {
         eixo_x: {type: 'number', default: 0},
@@ -60,17 +62,21 @@ AFRAME.registerComponent('moves', {
     },
     boards: function () {
         if (this.data.eixo_x <= -9 || this.data.eixo_x >= 9) {
-            alert("Game over");
+            //alert("Game over");
+            bateu = true;
+            console.log(bateu);
+            velocidade=0;
         }
         if (this.data.eixo_y <= -9 || this.data.eixo_y >= 9) {
+            //alert("Game over");
+            bateu = true;
+            console.log(bateu);
+            velocidade=0;
+        }
+
+        if(bateu){
             alert("Game over");
         }
-        murros.forEach(el => {
-            if (this.data.eixo_x <= el.eixo_x + range && this.data.eixo_y <= el.eixo_y + range) {
-                if (this.data.eixo_x >= el.eixo_x - range && this.data.eixo_y >= el.eixo_y - range) {
-                    alert("Game over");
-                }
-            }
-        });
+
     }
 });
