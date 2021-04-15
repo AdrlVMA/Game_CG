@@ -17,7 +17,7 @@ AFRAME.registerComponent('muro_1', {
 
         if(pontuacao>5){
             this.el.object3D.position.set(this.data.eixo_x_1, this.data.eixo_y_1, 0);
-            if(posicao_head_x<=this.data.eixo_x_muro_1+range_muro && posicao_head_y<=this.data.eixo_y_muro_1+range_muro && posicao_head_x>=this.data.eixo_x_muro_1-range_muro && posicao_head_y>=this.data.eixo_y_muro_1-range_muro){
+            if(position_head_x<=this.data.eixo_x_muro_1+range_muro && position_head_y<=this.data.eixo_y_muro_1+range_muro && position_head_x>=this.data.eixo_x_muro_1-range_muro && position_head_y>=this.data.eixo_y_muro_1-range_muro){
                 bateu = true;
             }
         }else{
