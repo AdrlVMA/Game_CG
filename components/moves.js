@@ -1,9 +1,10 @@
 posicao_head_x = 0;
 posicao_head_y = 0;
 
-var velocidade = 0.05;
+let velocidade = 0.05;
 
-var bateu = false;
+let bateu = false;
+let game_over = false;
 
 AFRAME.registerComponent('moves', {
     schema: {
@@ -62,20 +63,18 @@ AFRAME.registerComponent('moves', {
     },
     boards: function () {
         if (this.data.eixo_x <= -9 || this.data.eixo_x >= 9) {
-            //alert("Game over");
             bateu = true;
-            console.log(bateu);
-            velocidade=0;
+            velocidade = 0;
         }
         if (this.data.eixo_y <= -9 || this.data.eixo_y >= 9) {
-            //alert("Game over");
             bateu = true;
-            console.log(bateu);
-            velocidade=0;
+            velocidade = 0;
         }
 
-        if(bateu){
-            alert("Game over");
+        if (bateu && !game_over) {
+            alert("Game over. Voce fez " + pontuacao + " pontos.");
+            game_over = true;
+            location.reload();
         }
 
     }

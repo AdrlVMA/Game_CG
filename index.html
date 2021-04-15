@@ -9,19 +9,24 @@
     <body>
 
         <a-scene>
+            <!-- Nome do Jogo  -->
             <a-text position="-1.3 2 -3" width=10 color="pink" value="Snake Game"></a-text>
-            
-            <a-text position="-1.4 1.6 -3" width=3 color="white" value="Utilize as teclas -W -A -S -D para se movimentar."></a-text>
 
-            <a-text update-text-every-second value="a" position=" -0.01 -0.6 -1" color="red" width="3"></a-text>
-            <!--<a-text id="score" score-counter position="-0.2 -0.6 -1" value= "Hello World"></a-text>-->
-            <!--<a-entity text="text: 0" position="-0.2 -0.6 -1" update-text-every-second></a-entity>-->
+            <!-- Instruções de movimento -->
+            <a-text position="-1.4 1.6 -3" width=3 color="white"
+                    value="Utilize as teclas -W -A -S -D para se movimentar.">
+            </a-text>
+
+            <a-text update-text-every-second value="a" position=" -0.5 -0.6 -1" color="red" width="3">
+            </a-text>
 
             <!--Céu 01 | Fundo do Game-->
             <a-sky color="#000000"></a-sky>
 
             <!--  Desabilitando movimentacao da camera  -->
-            <a-entity camera="active: true" look-controls wasd-controls position="0 2 -2" data-aframe-default-camera></a-entity>
+            <a-entity camera="active: true" look-controls wasd-controls position="0 2 -2"
+                      data-aframe-default-camera>
+            </a-entity>
             
                 <!--Cenário 01 - Fase 01-->
                 <a-plane position="0 2 -20" rotation="-30 0 0" width="20" align="center" height="20" color="#0000FF">
@@ -32,13 +37,6 @@
                     <a-box position =" 10 0 0" height = "21" color = "#FF0000"></a-box>
     
                     <a-sphere comida_1 radius = "0.3"  color = "#FFFFFF"></a-sphere>
-    
-                    <!--<a-box muro_1 width="5" color="#FF0000"></a-box>-->
-                    <!--<a-box muro_1 width="5" color="#FF0000"></a-box>-->
-                    <!--<a-box muro_1 width="5" color="#FF0000"></a-box>-->
-                    <!--<a-box muro_1 width="5" color="#FF0000"></a-box>-->
-                    <!--<a-box muro_1 width="5" color="#FF0000"></a-box>-->
-                    <!--<a-box muro_1 width="5" color="#FF0000"></a-box>-->
     
                     <!--Cabeça da cobra | Movimentação-->
                     <a-box id="head" moves width="0.5" height="0.5"  position ="-8 -8 0" color = "#00FF00"></a-box>
