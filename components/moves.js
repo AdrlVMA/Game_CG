@@ -1,10 +1,9 @@
-posicao_head_x = 0;
-posicao_head_y = 0;
+position_head_x = 0;
+position_head_y = 0;
 
 let velocidade = 0.05;
 
 let bateu = false;
-let game_over = false;
 
 AFRAME.registerComponent('moves', {
     schema: {
@@ -20,6 +19,7 @@ AFRAME.registerComponent('moves', {
         this.data.eixo_z = 0;
         this.data.direcao = 'D';
         this.data.velocidade = velocidade;
+        this.data.game_over = false;
     },
     tick: function () {
         this.keyboard();
@@ -58,8 +58,8 @@ AFRAME.registerComponent('moves', {
         } else if (this.data.direcao === 'S') {
             this.data.eixo_y -= y > -9 ? velocidade : 0;
         }
-        posicao_head_x = this.data.eixo_x;
-        posicao_head_y = this.data.eixo_y;
+        position_head_x = this.data.eixo_x;
+        position_head_y = this.data.eixo_y;
     },
     boards: function () {
         if (this.data.eixo_x <= -9 || this.data.eixo_x >= 9) {
@@ -71,9 +71,9 @@ AFRAME.registerComponent('moves', {
             velocidade = 0;
         }
 
-        if (bateu && !game_over) {
+        if (bateu && !this.data.game_over) {
             alert("Game over. Voce fez " + pontuacao + " pontos.");
-            game_over = true;
+            this.data.game_over = true;
             location.reload();
         }
 
