@@ -83,6 +83,8 @@ AFRAME.registerComponent('moves', {
         this.level();
 
         if (bateu && !this.game_over) {
+            var entity = document.querySelector('[sound]');
+            entity.components.sound.playSound();
             alert("Game over. Voce fez " + pontuacao + " pontos.");
             this.game_over = true;
             location.reload();
@@ -95,13 +97,19 @@ AFRAME.registerComponent('moves', {
             if (lvl2_muro_1(this.data.eixo_x, this.data.eixo_y, range_muro)) {
                 bateu = true;
                 velocidade = 0;
+                var entity = document.querySelector('[sound]');
+                entity.components.sound.playSound();
             }
             if (lvl2_muro_2(this.data.eixo_x, this.data.eixo_y, range_muro)) {
                 bateu = true;
                 velocidade = 0;
+                var entity = document.querySelector('[sound]');
+                entity.components.sound.playSound();
             }
             if (lvl2_muro_3(this.data.eixo_x, this.data.eixo_y, range_muro)) {
                 bateu = true;
+                var entity = document.querySelector('[sound]');
+                entity.components.sound.playSound();
                 velocidade = 0;
             }
         }

@@ -45,8 +45,8 @@ AFRAME.registerComponent('comida_1', {
 
             velocidade += incremento;
             pontuacao += 1;
-
             colisao = true;
+
         } else {
             colisao = false;
         }

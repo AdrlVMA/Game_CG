@@ -15,6 +15,9 @@ AFRAME.registerComponent('muros_level', {
 
             bateu = true;
             game_over = false;
+
+            var entity = document.querySelector('[sound]');
+            entity.components.sound.playSound();
         }
     }
 });

@@ -21,6 +21,15 @@
             <a-text update-text-every-second value="a" position=" -0.5 -0.6 -1" color="red" width="3">
             </a-text>
 
+            <a-assets>
+                <audio id="shock" src="shock.mp3" preload="auto"></audio>
+                <audio id="eat" src="eat.mp3" preload="auto"></audio>
+            </a-assets>
+            
+            <a-entity sound="src: #shock"></a-entity>
+            <a-entity sound="src: url(music.mp3);  autoplay: true"></a-entity>
+
+
             <!--Céu 01 | Fundo do Game-->
             <a-assets>
                 <img id="sky" src="unnamed.jpg">
