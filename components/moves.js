@@ -4,6 +4,7 @@ position_head_y = 0;
 let velocidade = 0.05;
 
 let bateu = false;
+let game_over = false;
 
 AFRAME.registerComponent('moves', {
     schema: {
@@ -19,7 +20,6 @@ AFRAME.registerComponent('moves', {
         this.data.eixo_z = 0;
         this.data.direcao = 'D';
         this.data.velocidade = velocidade;
-        this.data.game_over = false;
     },
     tick: function () {
         this.keyboard();
@@ -71,9 +71,9 @@ AFRAME.registerComponent('moves', {
             velocidade = 0;
         }
 
-        if (bateu && !this.data.game_over) {
+        if (bateu && !this.game_over) {
             alert("Game over. Voce fez " + pontuacao + " pontos.");
-            this.data.game_over = true;
+            this.game_over = true;
             location.reload();
         }
 
