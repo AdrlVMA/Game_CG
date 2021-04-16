@@ -65,6 +65,7 @@ AFRAME.registerComponent('moves', {
         if (pontuacao >= pontos_level && !this.data.level2) {
             this.data.eixo_x = -8;
             this.data.eixo_y = -8;
+            alert("Parabéns. Level 2 atingido.");
             this.data.level2 = true;
         }
     },
