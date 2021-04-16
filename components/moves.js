@@ -4,6 +4,7 @@ position_head_y = 0;
 let velocidade = 0.05;
 
 let bateu = false;
+let game_over = false;
 
 AFRAME.registerComponent('moves', {
     schema: {
@@ -19,7 +20,7 @@ AFRAME.registerComponent('moves', {
         this.data.eixo_z = 0;
         this.data.direcao = 'D';
         this.data.velocidade = velocidade;
-        this.data.game_over = false;
+        this.data.level2 = false;
     },
     tick: function () {
         this.keyboard();
@@ -60,6 +61,14 @@ AFRAME.registerComponent('moves', {
         }
         position_head_x = this.data.eixo_x;
         position_head_y = this.data.eixo_y;
+
+        if (pontuacao >= pontos_level && !this.data.level2) {
+            this.data.eixo_x = -8;
+            this.data.eixo_y = -8;
+            this.data.direcao = 'D';
+            alert("Parabens! Level 2 atingido. Clique Ok para continuar.");
+            this.data.level2 = true;
+        }
     },
     boards: function () {
         if (this.data.eixo_x <= -9 || this.data.eixo_x >= 9) {
@@ -71,11 +80,54 @@ AFRAME.registerComponent('moves', {
             velocidade = 0;
         }
 
-        if (bateu && !this.data.game_over) {
+        this.level();
+
+        if (bateu && !this.game_over) {
             alert("Game over. Voce fez " + pontuacao + " pontos.");
-            this.data.game_over = true;
+            this.game_over = true;
             location.reload();
         }
 
+    },
+    level: function () {
+        let range_muro = 0.4;
+        if (pontuacao >= pontos_level) {
+            if (lvl2_muro_1(this.data.eixo_x, this.data.eixo_y, range_muro)) {
+                bateu = true;
+                velocidade = 0;
+            }
+            if (lvl2_muro_2(this.data.eixo_x, this.data.eixo_y, range_muro)) {
+                bateu = true;
+                velocidade = 0;
+            }
+            if (lvl2_muro_3(this.data.eixo_x, this.data.eixo_y, range_muro)) {
+                bateu = true;
+                velocidade = 0;
+            }
+        }
     }
 });
+
+lvl2_muro_1 = (eixo_x, eixo_y, range_muro = 0.4) => {
+    if (eixo_y <= 5 + range_muro && eixo_y >= 5 - range_muro &&
+        eixo_x >= -5 - range_muro && eixo_x <= 5 + range_muro) {
+        return true;
+    }
+    return false;
+};
+
+lvl2_muro_2 = (eixo_x, eixo_y, range_muro = 0.4) => {
+    if (eixo_y <= 3.5 + range_muro && eixo_y >= -3.5 - range_muro &&
+        eixo_x >= -0.5 - range_muro && eixo_x <= 0.5 + range_muro) {
+        return true;
+    }
+    return false;
+};
+
+lvl2_muro_3 = (eixo_x, eixo_y, range_muro = 0.4) => {
+    if (eixo_y <= -7 + range_muro && eixo_y >= -7 - range_muro &&
+        eixo_x >= -5 - range_muro && eixo_x <= 5 + range_muro) {
+        return true;
+    }
+    return false;
+};

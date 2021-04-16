@@ -5,6 +5,7 @@
         <script src="components/moves.js"></script>
         <script src="components/score.js"></script>
         <script src="components/murro.js"></script>
+        <script src="components/level.js"></script>
     </head>
     <body>
 
@@ -27,7 +28,7 @@
             <a-entity camera="active: true" look-controls wasd-controls position="0 2 -2"
                       data-aframe-default-camera>
             </a-entity>
-            
+
                 <!--Cenário 01 - Fase 01-->
                 <a-plane position="0 2 -20" rotation="-30 0 0" width="20" align="center" height="20" color="#0000FF">
                     <!--Decoração 01 | Caixas na extremidade-->
@@ -37,11 +38,15 @@
                     <a-box position =" 10 0 0" height = "21" color = "#FF0000"></a-box>
     
                     <a-sphere comida_1 radius = "0.3"  color = "#FFFFFF"></a-sphere>
-    
+
+                    <a-box muros_level position="0 5 0" width="10" color = "#FF0000"></a-box>
+                    <a-box muros_level position="0 -1 0" height="7" color = "#FF0000"></a-box>
+                    <a-box muros_level position="0 -7 0" width="10" color = "#FF0000"></a-box>
+
                     <!--Cabeça da cobra | Movimentação-->
                     <a-box id="head" moves width="0.5" height="0.5"  position ="-8 -8 0" color = "#00FF00"></a-box>
                 </a-plane>
-    
+
         </a-scene>
     </body>
 </html>
