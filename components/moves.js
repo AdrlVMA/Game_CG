@@ -20,6 +20,7 @@ AFRAME.registerComponent('moves', {
         this.data.eixo_z = 0;
         this.data.direcao = 'D';
         this.data.velocidade = velocidade;
+        this.data.level2 = false;
     },
     tick: function () {
         this.keyboard();
@@ -60,6 +61,12 @@ AFRAME.registerComponent('moves', {
         }
         position_head_x = this.data.eixo_x;
         position_head_y = this.data.eixo_y;
+
+        if (pontuacao >= pontos_level && !this.data.level2) {
+            this.data.eixo_x = -8;
+            this.data.eixo_y = -8;
+            this.data.level2 = true;
+        }
     },
     boards: function () {
         if (this.data.eixo_x <= -9 || this.data.eixo_x >= 9) {
