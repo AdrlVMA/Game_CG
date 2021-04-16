@@ -5,10 +5,9 @@ AFRAME.registerComponent('muros_level', {
         this.eixo_x_muro_1 = 5;
         this.eixo_y_muro_1 = 5;
         this.el.object3D.position.z = -2;
-        console.log(this.el.object3D.position);
     },
     tick: function () {
-        if (pontuacao > 5) {
+        if (pontuacao >= pontos_level) {
             this.el.object3D.position.z = 0;
         }
         if (position_head_x <= this.eixo_x_muro_1 + range_muro && position_head_y <= this.eixo_y_muro_1 + range_muro

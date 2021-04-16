@@ -71,11 +71,30 @@ AFRAME.registerComponent('moves', {
             velocidade = 0;
         }
 
+        this.level();
+
         if (bateu && !this.game_over) {
             alert("Game over. Voce fez " + pontuacao + " pontos.");
             this.game_over = true;
             location.reload();
         }
 
+    },
+    level: function () {
+        let range_muro = 0.4;
+        if (pontuacao >= pontos_level) {
+            if (this.data.eixo_y <= 5 + range_muro && this.data.eixo_y >= 5 - range_muro && this.data.eixo_x >= -5 - range_muro && this.data.eixo_x <= 5 + range_muro) {
+                bateu = true;
+                velocidade = 0;
+            }
+            if (this.data.eixo_y <= 3.5 + range_muro && this.data.eixo_y >= -3.5 - range_muro && this.data.eixo_x >= -0.5 - range_muro && this.data.eixo_x <= 0.5 + range_muro) {
+                bateu = true;
+                velocidade = 0;
+            }
+            if (this.data.eixo_y <= -7 + range_muro && this.data.eixo_y >= -7 - range_muro && this.data.eixo_x >= -5 - range_muro && this.data.eixo_x <= 5 + range_muro) {
+                bateu = true;
+                velocidade = 0;
+            }
+        }
     }
 });
