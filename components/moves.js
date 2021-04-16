@@ -65,7 +65,8 @@ AFRAME.registerComponent('moves', {
         if (pontuacao >= pontos_level && !this.data.level2) {
             this.data.eixo_x = -8;
             this.data.eixo_y = -8;
-            alert("Parabéns. Level 2 atingido.");
+            this.data.direcao = 'D';
+            alert("Parabens! Level 2 atingido. Clique Ok para continuar.");
             this.data.level2 = true;
         }
     },
@@ -91,18 +92,42 @@ AFRAME.registerComponent('moves', {
     level: function () {
         let range_muro = 0.4;
         if (pontuacao >= pontos_level) {
-            if (this.data.eixo_y <= 5 + range_muro && this.data.eixo_y >= 5 - range_muro && this.data.eixo_x >= -5 - range_muro && this.data.eixo_x <= 5 + range_muro) {
+            if (lvl2_muro_1(this.data.eixo_x, this.data.eixo_y, range_muro)) {
                 bateu = true;
                 velocidade = 0;
             }
-            if (this.data.eixo_y <= 3.5 + range_muro && this.data.eixo_y >= -3.5 - range_muro && this.data.eixo_x >= -0.5 - range_muro && this.data.eixo_x <= 0.5 + range_muro) {
+            if (lvl2_muro_2(this.data.eixo_x, this.data.eixo_y, range_muro)) {
                 bateu = true;
                 velocidade = 0;
             }
-            if (this.data.eixo_y <= -7 + range_muro && this.data.eixo_y >= -7 - range_muro && this.data.eixo_x >= -5 - range_muro && this.data.eixo_x <= 5 + range_muro) {
+            if (lvl2_muro_3(this.data.eixo_x, this.data.eixo_y, range_muro)) {
                 bateu = true;
                 velocidade = 0;
             }
         }
     }
 });
+
+lvl2_muro_1 = (eixo_x, eixo_y, range_muro = 0.4) => {
+    if (eixo_y <= 5 + range_muro && eixo_y >= 5 - range_muro &&
+        eixo_x >= -5 - range_muro && eixo_x <= 5 + range_muro) {
+        return true;
+    }
+    return false;
+};
+
+lvl2_muro_2 = (eixo_x, eixo_y, range_muro = 0.4) => {
+    if (eixo_y <= 3.5 + range_muro && eixo_y >= -3.5 - range_muro &&
+        eixo_x >= -0.5 - range_muro && eixo_x <= 0.5 + range_muro) {
+        return true;
+    }
+    return false;
+};
+
+lvl2_muro_3 = (eixo_x, eixo_y, range_muro = 0.4) => {
+    if (eixo_y <= -7 + range_muro && eixo_y >= -7 - range_muro &&
+        eixo_x >= -5 - range_muro && eixo_x <= 5 + range_muro) {
+        return true;
+    }
+    return false;
+};
